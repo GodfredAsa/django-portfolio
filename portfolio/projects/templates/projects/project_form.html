@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block body %}
+<div class="project-form">
+  <h1>Create a Project</h1>
+  <div class="container">
+    <form action="" method="POST">
+      {% csrf_token %} {{form.as_p}}
+      <input type="submit" class="submit" />
+    </form>
+  </div>
+</div>
+
+{% endblock %}

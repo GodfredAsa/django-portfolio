@@ -1,0 +1,39 @@
+{% load static %}
+<!-- <h1>Logo</h1>
+<div class="container m-0">
+  <a href="{% url 'create-project' %}" class="btn btn-sm btn-info"
+    >Add project</a
+  >
+</div>
+<hr /> -->
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container container--narrow">
+      <a href="{% url 'projects' %}" class="header__logo">
+
+
+        <i class="bi bi-bug logo"></i>
+
+        <!-- RESTORE THIS IMAGE AFTER STATIC FILE STARTS WORKING  -->
+        <!-- <img src="images/logo.svg" alt="DevSearch Logo" />  -->
+      </a>
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <label for="responsive-menu" class="toggle-menu">
+          <span>Menu</span>
+          <div class="toggle-menu__lines"></div>
+        </label>
+        <ul class="header__menu">
+          <li class="header__menuItem"><a href="">Developers</a></li>
+          <li class="header__menuItem"><a href="{% url 'projects' %}">Projects</a></li>
+          <li class="header__menuItem"><a href="">Inbox</a></li>
+          <!-- <li class="header__menuItem"><a href="">My Account</a></li> -->
+          <li class="header__menuItem"><a href="" class="btn btn-sm btn-secondary">Sign in / Sign up</a></li>
+
+          <li class="header__menuItem"><a href="{% url 'create-project' %}" class="btn btn-sm btn-secondary">Add Project</a></li>
+          <li class="header__menuItem"><a href="" class="btn btn--sub">Login/Sign Up</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
