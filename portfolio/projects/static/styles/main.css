@@ -1,0 +1,124 @@
+.logo-item{
+    width: 10%;
+}
+img{
+    width:100%
+}
+
+.tag{
+    background-color: #FCE2DB;
+    margin: 2px 2px 5px 0;
+    border-radius: 5px;
+    padding: 7px 5px;
+
+}
+
+
+.header {
+    background: #fff;
+    transition: all 0.5s;
+    z-index: 997;
+    height: 90px;
+    border-bottom: 1px solid #fff;
+}
+
+
+.align-items-center {
+    align-items: center!important;
+}
+
+.d-flex {
+    display: flex!important;
+}
+
+
+.align-items-center {
+    align-items: center!important;
+}
+.d-flex {
+    display: flex!important;
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+user agent stylesheet
+header {
+    display: block;
+}
+
+li{
+    display: inline;
+    margin: 10px;
+}
+
+.add-project-btn{
+    border-radius: 20px;
+    background-color: #CE1212;
+    padding: 8px;
+    width: 100px;
+    border: none;
+}
+
+.edit-view-project-container{
+    margin-top: 25px;
+}
+
+.card-body{
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+body{
+  background-color:#eee;
+}
+
+.project-card{
+    margin-top: 100px;
+}
+
+.bi{
+    font-size: 20px;
+    padding: 4px 7px;
+    border-radius: 5px;
+    margin: 1px;
+    width: 80%; 
+}
+
+.bi-pencil-square{
+color: green;
+}
+
+.bi-eye:hover{
+    background-color: rgb(70, 118, 207);
+    color: white;
+    }
+    
+.bi-pencil-square:hover{
+    background-color: green;
+    color: #eee;
+}
+
+.bi-eye:hover{
+    background-color: rgb(70, 118, 207);
+    color: #eee;
+}
+
+.owner{
+    color: green;
+    width: 80%;
+    font-weight: bolder;
+    margin: 10px 0;
+    margin: 10px 0;
+    text-align: center;
+    margin: 10px auto;
+    box-shadow: none;
+}
+
+.bi-person-circle{
+    color: rgb(128, 33, 33);
+    font-size: 30px;
+}

@@ -20,7 +20,7 @@ def createProject(request):
         if form.is_valid():
             form.save()
             return redirect('projects')
-           
+
     context = {'form': form}
     return render(request, 'projects/project_form.html', context )
 

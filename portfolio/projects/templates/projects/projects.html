@@ -1,39 +1,45 @@
 {% extends "base.html" %} {% block body %}
-
-
-
-
-  <!-- CURRENT LOOKS OF CREATE PROJECTS  -->
-  <main class="projects project-card">
-    <div class="container text-center">
-      <div class="row">
-        {% for project in projects %}
-        <div class="col md-3 project-items">
-          <div class="card">
-            <img src="https://jslib.dev/wp-content/uploads/2021/05/REACTJS.jpg" class="card-img-top img-fluid" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{project.title}}</h5>
-              <p class="card-text">{{project.description}}</p>
-              <div class="project__tags">
+<main class="projects project-card">
+  <div class="container text-center">
+    <div class="row">
+      {% for project in projects %}
+      <div class="col md-3 project-items">
+        <div class="card">
+          <img
+            src="https://jslib.dev/wp-content/uploads/2021/05/REACTJS.jpg"
+            class="card-img-top img-fluid"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{project.title}}</h5>
+           <div>
+            <div><i class="bi bi-person-circle"></i></div>
+            <p class="owner">{{project.owner.name}}</p>
             
-                {% for tag in project.tags.all %}
-                <span class="tag tag--pill tag--main">
-                 <small>{{tag}}</small>
-               </span>
-                {% endfor %}
-               </div>
-              <!-- <a href="#" class="btn btn-primary">View Details</a>  do the details button here  -->
+           </div>
+            <p class="card-text">{{project.description}}</p>
+            <div class="project__tags">
+              {% for tag in project.tags.all %}
+              <span class="tag tag--pill tag--main">
+                <small>{{tag}}</small>
+              </span>
+              {% endfor %}
+            </div>
+            <div class="edit-view-project-container">
+              <a href="{% url 'project' project.id %}">
+                <i class="bi bi-eye"></i>
+              </a>
+              <a href="{% url 'update-project' project.id %}">
+                <i class="bi bi-pencil-square"></i>
+              </a>
             </div>
           </div>
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
-
-   
-  </main>
-
-
+  </div>
+</main>
 
 <!-- dOWN HERE NOT PART OF THE COPIED CONTENTS  -->
 
