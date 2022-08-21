@@ -28,7 +28,25 @@
 
   </head>
   <body>
-    {% include 'navbar.html' %} {% block body %} {% endblock %}
+    {% include 'navbar.html' %} 
+  
+    {% if messages %}
+    <ul class="meaasges">
+      {% for message in messages  %}
+      <li 
+          {% if message.tags %} 
+          class="{{message.tags}}" 
+          {% endif %}> {{message}}
+      </li>
+      {% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+    {% block body %} 
+    
+    {% endblock %}
 
     <h3 class="h3">Footersss</h3>
   
