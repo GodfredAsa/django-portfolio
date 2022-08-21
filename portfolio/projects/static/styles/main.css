@@ -107,6 +107,15 @@ color: green;
     color: #eee;
 }
 
+.bi-trash{
+    color: brown;
+}
+
+.bi-trash:hover{
+    background-color: brown;
+    color: #eee;
+}
+
 .owner{
     color: green;
     width: 80%;
