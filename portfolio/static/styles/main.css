@@ -14,6 +14,7 @@ img{
 }
 
 
+
 .header {
     background: #fff;
     transition: all 0.5s;
@@ -104,7 +105,11 @@ color: green;
 }
 
 .bi-eye:hover{
-    background-color: rgb(70, 118, 207);
+    background-color: pink;
     color: #eee;
 }
 
+
+body{
+    background: url('../images/pattern.jpg');
+}

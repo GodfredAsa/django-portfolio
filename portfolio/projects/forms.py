@@ -8,7 +8,7 @@ class ProjectForm(ModelForm):
         widgets = {
             # 'tags': forms.CheckboxSelectMultiple(),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'featured_image': forms.Media(),
+            'featured_image': forms.Media(),
             'description': forms.TextInput(attrs={'class': 'form-control'}),
             'demo_link': forms.TextInput(attrs={'class': 'form-control'}),
             'source_link': forms.TextInput(attrs={'class': 'form-control'}),

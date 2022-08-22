@@ -19,6 +19,7 @@
 
     <link href="{% static 'styles/main.css' %}" rel="stylesheet" />
     <link href="{% static 'styles/uikit/styles/uikit.css' %}" rel="stylesheet" />
+    <link href="{% static 'styles/uikit/styles/app.css' %}" rel="stylesheet" />
 
     <link
       rel="stylesheet"
@@ -27,10 +28,19 @@
 
 
   </head>
+<!-- FRED WRITE ALL YOUR STYLING IN HERE  -->
+  <style>
+    body{
+      background-image: url('../static/images/pattern.jpg');
+      background-color: red;
+    }
+  </style>
+
+  <!-- END OF PERSONAL STYLING  -->
   <body>
     {% include 'navbar.html' %} 
   
-    {% if messages %}
+    <!-- {% if messages %}
     <ul class="meaasges">
       {% for message in messages  %}
       <li 
@@ -39,10 +49,25 @@
           {% endif %}> {{message}}
       </li>
       {% endfor %}
-
     </ul>
 
+    {% endif %} -->
+
+    {% if messages %}
+    {% for message in messages %}
+
+    <div class="alert alert__{{message.tags}}">
+      <p class="alert__message">{{message}}</p>
+      <button class="alert__close">X</button>
+    </div>
+
+    {% endfor %}
+
+
     {% endif %}
+
+
+
 
     {% block body %} 
     
@@ -51,4 +76,6 @@
     <h3 class="h3">Footersss</h3>
   
   </body>
+
+  <script src="{% static 'styles/uikit/app.js' %}"></script>
 </html>
