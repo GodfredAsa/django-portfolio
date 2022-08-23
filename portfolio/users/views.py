@@ -5,6 +5,7 @@ from django.contrib.auth import  authenticate, login,logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import CustomUserCreationForm
+from django.contrib.auth.decorators import login_required
 from .models import Profile
 
 def loginUser(request):
@@ -63,5 +64,13 @@ def user_profile(request, pk):
     skills = profile.skill_set.filter() # profile skill without description 
     context = {'profile': profile, 'skills': skills}
     return render(request, 'users/user-profile.html', context)
+
+@login_required(login_url='login')
+def userAccount(request):
+    profile  = request.user.profile # returns the login user's profile 
+    skills = profile.skill_set.all()
+    projects = profile.project_set.all()
+    context = {'profile': profile, 'skills': skills, 'projects':projects}
+    return render(request, 'users/account.html', context)
 
 
