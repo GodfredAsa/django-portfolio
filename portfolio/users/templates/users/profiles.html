@@ -33,10 +33,11 @@
           <div class="column card">
             <div class="dev">
                 <!-- insert link here  -->
-              <a href="{% url 'user-profile' profile.id %}" class="card__body">
-                <div class="dev__profile">
-
-                  <i class="bi bi-person"></i>
+                <a href="{% url 'user-profile' profile.id %}" class="card__body">
+                  <div class="dev__profile">
+                    
+                    <img src="{{profile.profile_image}}" alt="sadsadasdfs"/>
+                  <!-- <i class="bi bi-person"></i> -->
                   <div class="dev__meta">
                     <h3>{{profile.name|slice:14}}</h3>
                     <h5 class="lead">{{profile.short_intro|slice:"20"}}</h5>
