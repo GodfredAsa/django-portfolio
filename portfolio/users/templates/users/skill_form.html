@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block body %}
+
+<h1>Create Skill</h1>
+
+<form action="" method="POST">
+  <div class="container">
+    <main class="formPage my-xl">
+        <div class="content-box">
+          <div class="formWrapper">
+            <a class="backButton" href="{% url 'account' %}"><i class="im im-angle-left"> < Home Page</i></a>
+            <form class="form" method="POST">
+              {% csrf_token %} {% for field in form %}
+    
+              <div class="form__field">
+                <label for="formInput#text">{{field.label}} </label>
+                {{field}}
+              </div>
+    
+              {% endfor %}
+    
+              <input
+                class="btn btn--sub btn--lg my-md w-100 btn-success"
+                type="submit"
+                value="Submit"
+              />
+            </form>
+          </div>
+        </div>
+      </main>
+  </div>
+</form>
+
+{% endblock %}
