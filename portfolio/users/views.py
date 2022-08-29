@@ -7,6 +7,7 @@ from django.contrib import messages
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from .utils import searchProfiles
 
 def loginUser(request):
     page = 'login'
@@ -54,20 +55,19 @@ def registerUser(request):
     return render(request, 'users/login_register.html', context)
 
 def profiles(request):
-    profiles = Profile.objects.all()
-    context = {'profiles': profiles}
+    profiles, search_query = searchProfiles(request)
+    context = {'profiles': profiles, 'search_query': search_query}
     return render(request, 'users/profiles.html', context)
 
 def user_profile(request, pk):
     profile = Profile.objects.get(id=pk)
-    # topSkills = profile.skill_set.exclude(description__exact = "") # profile skill with description 
     skills = profile.skill_set.filter() # profile skill without description 
     context = {'profile': profile, 'skills': skills}
     return render(request, 'users/user-profile.html', context)
 
 @login_required(login_url='login')
 def userAccount(request):
-    profile  = request.user.profile # returns the login user's profile 
+    profile = request.user.profile # returns the login user's profile 
     skills = profile.skill_set.all()
     projects = profile.project_set.all()
     context = {'profile': profile, 'skills': skills, 'projects':projects}
@@ -99,8 +99,7 @@ def createSkill(request):
             messages.success(request, 'skill successfully added')
             return redirect('account')
     context = {'form': form}
-    return render(request, 'users/skill_form.html', context)
-    
+    return render(request, 'users/skill_form.html', context)   
 
 @login_required(login_url='login')
 def updateSkill(request, pk):
@@ -116,7 +115,6 @@ def updateSkill(request, pk):
     context = {'form': form}
     return render(request, 'users/skill_form.html', context)
 
-#  deleting a skill 
 @login_required(login_url='login')
 def deleteSkill(request, pk):
     profile = request.user.profile 
