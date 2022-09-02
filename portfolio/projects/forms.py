@@ -1,5 +1,6 @@
+from statistics import mode
 from django.forms import ModelForm
-from .models import Project
+from .models import Project,Review
 from django import forms
 class ProjectForm(ModelForm):
     class Meta:
@@ -22,3 +23,17 @@ class ProjectForm(ModelForm):
         # self.fields['title'].widget.attrs.update({'class': 'input', 'placeholder': 'Add Title'})
         # for name, field in self.fields.items():
         #     field.widget.attrs.update({'class': 'input'})
+        
+class ReviewForm(ModelForm):
+    class Meta:
+        model  = Review
+        fields = ['value', 'body']
+        labels = { 'value': 'Place your vote',
+                   'body': 'Add a comment with your vote'
+        }
+        
+        widgets = {
+            'value': forms.Select(attrs={'class': 'form-control form-control-lg'}),
+            'body': forms.Textarea(attrs={'class': 'form-control'}),
+        } 
+        

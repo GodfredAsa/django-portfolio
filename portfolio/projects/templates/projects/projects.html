@@ -20,8 +20,6 @@
   </div>
 </section>
 
-
-
 <main class="projects project-card">
   <div class="container text-center">
     <div class="row">
@@ -34,24 +32,19 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">{{project.title}}</h5>
+            <a href="{% url 'project' project.id %}"><h5 class="card-title"><b>{{project.title}}</b></h5></a>
            <div>
-            <div><i class="bi bi-person-circle"></i></div>
             <p class="owner"><a href="{% url 'user-profile' project.owner.id %}">{{project.owner.name}}</a></p>
             
            </div>
             <p class="card-text">{{project.description}}</p>
+            <div><b>{{project.vote_ratio}}</b> % Postitive Feedback ({{project.vote_total}} Votes)</div>
             <div class="project__tags">
               {% for tag in project.tags.all %}
               <span class="tag tag--pill tag--main">
                 <small>{{tag}}</small>
               </span>
               {% endfor %}
-            </div>
-            <div class="edit-view-project-container">
-              <a href="{% url 'project' project.id %}">
-                <i class="bi bi-eye"></i>
-              </a>
             </div>
           </div>
         </div>

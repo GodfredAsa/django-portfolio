@@ -1,8 +1,8 @@
 from multiprocessing import context
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.contrib import messages
 from .models import Project, Tag
-from .forms import ProjectForm
+from .forms import ProjectForm, ReviewForm
 from django.contrib.auth.decorators import login_required
 from .utils import searchProjects
 
@@ -13,8 +13,22 @@ def projects(request):
     return render(request, "projects/projects.html", context)
 
 def project(request, pk):
+    
     projectOBj = Project.objects.get(id = pk)
-    return render(request, "projects/single-project.html", {'project': projectOBj})
+    form = ReviewForm()
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        review = form.save(commit=False)
+        review.project = projectOBj
+        review.owner = request.user.profile
+        review.save()
+        # update project view count
+        projectOBj.getVoteCount
+        # show notification
+        messages.success(request,"Review submitted successfully")
+        return redirect('project', pk = projectOBj.id)
+    
+    return render(request, "projects/single-project.html", {'project': projectOBj, 'form':form})
 
 @login_required(login_url='login')
 
